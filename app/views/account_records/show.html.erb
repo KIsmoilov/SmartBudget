@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @account_record %>
+
+<div>
+  <%= link_to "Edit this account record", edit_account_record_path(@account_record) %> |
+  <%= link_to "Back to account records", account_records_path %>
+
+  <%= button_to "Destroy this account record", @account_record, method: :delete %>
+</div>
