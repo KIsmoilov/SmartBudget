@@ -3,10 +3,15 @@
     <strong>Name:</strong>
     <%= group.name %>
   </p>
+  
+  <p>
+  <strong>Icon:</strong>
+  <img class="rounded mx-auto" src="<%= group.icon %>" alt=<%= group.name %>/>
+  </p>
 
   <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
+    <strong>Total:</strong>
+    $<%= group.total_amount %>
   </p>
 
 </div>

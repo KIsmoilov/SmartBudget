@@ -1,33 +1,43 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <header>
+  <nav>
+      <ul class="nav_list">
+          <li><%= link_to "Back", unauthenticated_root_path, class: "nav-title" %></li>
+          <li class="page_title">REGISTRATION</li>
+          <% if user_signed_in? %>
+          <li class="sign_out">
+          <p class="nav_name">Hey <%= current_user.name%></p>
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-btn"%>
+          </li>
+          <% else %>
+          <%= f.submit "Sign up", class: "nav-btn" %>
+          <% end %>
+      </ul>
+  </nav>
+</header>  
+  
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name, class: "label" %><br />
-    <%= f.text_field :name, autocomplete: "name", required: true, class:"input" %>
+    <%= f.text_field :name, autocomplete: "name", placeholder: "Name", required: true, class: "input"  %>
+
   </div>
   
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", required: true, class: "input" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (6 characters minimum)", required: true, class: "input" %>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", required: true, class: "input" %>
   </div>
 <% end %>
 

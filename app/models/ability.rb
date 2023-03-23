@@ -9,7 +9,7 @@ class Ability
 
     can :manage, Group, user_id: user.id
     can :manage, AccountRecord, author_id: user.id
-    can :manage, AccountRecordGroup
+    can :manage, User
 
     return unless user.admin?
 
