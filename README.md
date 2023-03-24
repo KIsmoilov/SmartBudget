@@ -147,6 +147,10 @@ To run the project, execute the following command:
 To run tests, run the following command:
 
 ```sh
+  rails db:create
+  rails db:migrate
+  rails db:seed
+  rails db:seed RAILS_ENV=test
   rspec spec
 ```
 
