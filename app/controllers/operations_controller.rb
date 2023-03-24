@@ -1,4 +1,5 @@
 class OperationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_operation, only: %i[show edit update destroy]
 
   # GET /operations or /operations.json
@@ -33,7 +34,9 @@ class OperationsController < ApplicationController
 
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to groups_url, notice: 'Transaction was successfully created.' }
+        format.html do
+          redirect_to group_operations_path(@operation.groups.first.id), notice: 'Transaction was successfully created.'
+        end
         format.json { render :show, status: :created, location: @operation }
       else
         format.html { render :new, status: :unprocessable_entity }

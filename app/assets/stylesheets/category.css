@@ -1,0 +1,158 @@
+:root {
+  --first-color: #3778c2;
+  --second-color: #5fb523;
+  --font-color: #434b54;
+}
+
+.main_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.btn_block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: var(--second-color);
+  height: 10rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.btn_add,
+.btn_submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 70%;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.btn_delete {
+  background: var(--second-color);
+  color: white;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  width: 95%;
+  height: 7rem;
+  text-transform: uppercase;
+}
+
+.btn_delete:hover {
+  text-decoration: underline;
+}
+
+.btn_submit {
+  background-color: var(--second-color);
+}
+
+.btn_add:hover,
+.btn_submit:hover {
+  text-decoration: underline;
+}
+
+.image {
+  width: 9rem;
+}
+
+.add_msg {
+  font-size: 2rem;
+  font-style: italic;
+  margin-top: 3rem;
+}
+
+.category,
+.operation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid rgb(241, 243, 242);
+  margin-bottom: 2rem;
+  background-color: white;
+  width: 95%;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+}
+
+.operation {
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.group_text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.categories_container,
+.operations_container {
+  width: 100%;
+  margin-bottom: 10rem;
+}
+
+.group-info {
+  color: var(--font-color);
+  font-size: 2rem;
+}
+
+.group-date {
+  font-size: 1.4rem;
+}
+
+.field_checkbox {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--font-color);
+  margin-top: 2rem;
+  padding: 2rem 1rem;
+}
+
+select {
+  width: 90%;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.operations_total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: white;
+  height: 5rem;
+  margin-bottom: 3rem;
+  padding: 1rem 3rem;
+  font-size: 2.5rem;
+  color: var(--font-color);
+}
+
+.total_info {
+  font-weight: bold;
+}
+
+.btn_msg {
+  display: none;
+}

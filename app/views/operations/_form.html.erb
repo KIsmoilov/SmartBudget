@@ -11,22 +11,20 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.number_field :amount %>
-  </div>
-
   <div class="field">
-  <%= form.label :categories %> </br>
+  <%= form.text_field :name, placeholder: "Transaction name", required: true, class: "input" %>
+  </div>
+  
+  <div class="field">
+    <%= form.number_field :amount, placeholder: "Amount", required: true, class: "input", step: "any"  %>
+  </div>
+
+  <div class="field_checkbox">
+  <%= form.label :you_can_choose_one_or_more_categories %> </br>
   <%= form.select :group_ids, @categories.collect {|category| [category.name, category.id]}, { include_blank: false }, required: true, multiple: true %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <div class="btn_block">
+  <%= form.submit "Create Transaction", class: "btn_submit" %>
+</div>
 <% end %>

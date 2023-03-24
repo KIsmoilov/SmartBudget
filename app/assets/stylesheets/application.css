@@ -13,7 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
 @import "font-awesome";
+@import "category.css";
+@import "navbar.css";
+@import "splash.css";
 
 :root {
   --first-color: #3778c2;

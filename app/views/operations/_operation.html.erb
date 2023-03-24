@@ -1,12 +1,6 @@
-<div id="<%= dom_id operation %>">
-  <p>
-    <strong>Name:</strong>
-    <%= operation.name %>
+<div id="<%= dom_id operation %>" class="operation">
+  <p class="group-info"><%= operation.name %> </br> </br> 
+  <span class="group-date"><%= operation.created_at.strftime("%d %b %Y") %></span>
   </p>
-
-  <p>
-    <strong>Amount:</strong>
-    <%= operation.amount %>
-  </p>
-
+  <p class="group-info">$<%= operation.amount %></p>
 </div>

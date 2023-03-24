@@ -46,21 +46,13 @@ nav {
   color: white;
   cursor: pointer;
   background: none;
-  font-size: 2rem;
+  font-size: 1.9rem;
 }
 
 .nav_name {
   font-size: 25px;
   padding-left: 20px;
   text-decoration: none;
-}
-
-.sign_out {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  gap: 15px;
-  height: 35px;
 }
 
 form {

@@ -1,9 +1,16 @@
-<h1>New group</h1>
-
+<header>
+<nav>
+    <ul class="nav_list">
+        <%= link_to "Back", groups_path, class: "nav-title" %>
+        <li class="page_title">ADD CATEGORY</li>
+        <% if user_signed_in? %>
+        <li>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-btn"%>
+        </li>
+        <% else %>
+        <li><%= button_to "Sign In", new_user_session_path, class: "nav-btn"  %></li>
+        <% end %>
+    </ul>
+</nav>
+</header> 
 <%= render "form", group: @group %>
-
-<br>
-
-<div>
-  <%= link_to "Back to groups", groups_path %>
-</div>

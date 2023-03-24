@@ -13,4 +13,8 @@ class Group < ApplicationRecord
   def recent_exchanges
     operations.order(created_at: :desc)
   end
+
+  def self.created_by_current_user(current_user)
+    where(user_id: current_user.id).order(created_at: :desc)
+  end
 end
