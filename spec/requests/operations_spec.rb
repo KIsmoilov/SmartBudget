@@ -12,9 +12,9 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe '/account_records', type: :request do
+RSpec.describe '/operations', type: :request do
   # This should return the minimal set of attributes required to create a valid
-  # AccountRecord. As you add validations to AccountRecord, be sure to
+  # Operation. As you add validations to Operation, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
     skip('Add a hash of attributes valid for your model')
@@ -26,58 +26,58 @@ RSpec.describe '/account_records', type: :request do
 
   describe 'GET /index' do
     it 'renders a successful response' do
-      AccountRecord.create! valid_attributes
-      get account_records_url
+      Operation.create! valid_attributes
+      get operations_url
       expect(response).to be_successful
     end
   end
 
   describe 'GET /show' do
     it 'renders a successful response' do
-      account_record = AccountRecord.create! valid_attributes
-      get account_record_url(account_record)
+      operation = Operation.create! valid_attributes
+      get operation_url(operation)
       expect(response).to be_successful
     end
   end
 
   describe 'GET /new' do
     it 'renders a successful response' do
-      get new_account_record_url
+      get new_operation_url
       expect(response).to be_successful
     end
   end
 
   describe 'GET /edit' do
     it 'renders a successful response' do
-      account_record = AccountRecord.create! valid_attributes
-      get edit_account_record_url(account_record)
+      operation = Operation.create! valid_attributes
+      get edit_operation_url(operation)
       expect(response).to be_successful
     end
   end
 
   describe 'POST /create' do
     context 'with valid parameters' do
-      it 'creates a new AccountRecord' do
+      it 'creates a new Operation' do
         expect do
-          post account_records_url, params: { account_record: valid_attributes }
-        end.to change(AccountRecord, :count).by(1)
+          post operations_url, params: { operation: valid_attributes }
+        end.to change(Operation, :count).by(1)
       end
 
-      it 'redirects to the created account_record' do
-        post account_records_url, params: { account_record: valid_attributes }
-        expect(response).to redirect_to(account_record_url(AccountRecord.last))
+      it 'redirects to the created operation' do
+        post operations_url, params: { operation: valid_attributes }
+        expect(response).to redirect_to(operation_url(Operation.last))
       end
     end
 
     context 'with invalid parameters' do
-      it 'does not create a new AccountRecord' do
+      it 'does not create a new Operation' do
         expect do
-          post account_records_url, params: { account_record: invalid_attributes }
-        end.to change(AccountRecord, :count).by(0)
+          post operations_url, params: { operation: invalid_attributes }
+        end.to change(Operation, :count).by(0)
       end
 
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post account_records_url, params: { account_record: invalid_attributes }
+        post operations_url, params: { operation: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -89,42 +89,42 @@ RSpec.describe '/account_records', type: :request do
         skip('Add a hash of attributes valid for your model')
       end
 
-      it 'updates the requested account_record' do
-        account_record = AccountRecord.create! valid_attributes
-        patch account_record_url(account_record), params: { account_record: new_attributes }
-        account_record.reload
+      it 'updates the requested operation' do
+        operation = Operation.create! valid_attributes
+        patch operation_url(operation), params: { operation: new_attributes }
+        operation.reload
         skip('Add assertions for updated state')
       end
 
-      it 'redirects to the account_record' do
-        account_record = AccountRecord.create! valid_attributes
-        patch account_record_url(account_record), params: { account_record: new_attributes }
-        account_record.reload
-        expect(response).to redirect_to(account_record_url(account_record))
+      it 'redirects to the operation' do
+        operation = Operation.create! valid_attributes
+        patch operation_url(operation), params: { operation: new_attributes }
+        operation.reload
+        expect(response).to redirect_to(operation_url(operation))
       end
     end
 
     context 'with invalid parameters' do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        account_record = AccountRecord.create! valid_attributes
-        patch account_record_url(account_record), params: { account_record: invalid_attributes }
+        operation = Operation.create! valid_attributes
+        patch operation_url(operation), params: { operation: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 
   describe 'DELETE /destroy' do
-    it 'destroys the requested account_record' do
-      account_record = AccountRecord.create! valid_attributes
+    it 'destroys the requested operation' do
+      operation = Operation.create! valid_attributes
       expect do
-        delete account_record_url(account_record)
-      end.to change(AccountRecord, :count).by(-1)
+        delete operation_url(operation)
+      end.to change(Operation, :count).by(-1)
     end
 
-    it 'redirects to the account_records list' do
-      account_record = AccountRecord.create! valid_attributes
-      delete account_record_url(account_record)
-      expect(response).to redirect_to(account_records_url)
+    it 'redirects to the operations list' do
+      operation = Operation.create! valid_attributes
+      delete operation_url(operation)
+      expect(response).to redirect_to(operations_url)
     end
   end
 end

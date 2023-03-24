@@ -1,8 +1,8 @@
 <header>
 <nav>
     <ul class="nav_list">
-        <%= link_to "Back", groups_path, class: "nav-title" %>
-        <li class="page_title">ADD CATEGORY</li>
+        <%= link_to "Back", group_operations_path, class: "nav-title" %>
+        <li class="page_title">TRANSACTION</li>
         <% if user_signed_in? %>
         <li>
         <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-btn"%>
@@ -13,4 +13,11 @@
     </ul>
 </nav>
 </header> 
-<%= render "form", group: @group %>
+
+<p style="color: green"><%= notice %></p></br>
+
+<%= render @operation %>
+
+<div class="btn_block">
+  <%= button_to "Destroy this operation", @group_operations, method: :delete, class: "btn_delete"%>
+</div>

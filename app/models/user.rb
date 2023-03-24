@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :groups, dependent: :destroy
-  has_many :account_records, foreign_key: 'author_id', dependent: :destroy
+  has_many :operations, dependent: :destroy
 
   validates :name, presence: true
 

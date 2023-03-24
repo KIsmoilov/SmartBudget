@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+@import "font-awesome";
+@import "category.css";
+@import "navbar.css";
+@import "splash.css";
+
+:root {
+  --first-color: #3778c2;
+  --second-color: #5fb523;
+  --font-color: #434b54;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(241, 243, 242);
+  margin: 0;
+}

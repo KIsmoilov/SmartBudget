@@ -1,12 +1,5 @@
-<div id="<%= dom_id group %>">
-  <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
-
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
-
+<div id="<%= dom_id group %>" class="category">
+  <img class="image" src="<%= group.icon %>" alt=<%= group.name %>/>
+  <p class="group-info"><%= group.name %></p>
+  <p class="group-info">$<%= group.total_amount %></p>
 </div>

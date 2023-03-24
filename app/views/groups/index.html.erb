@@ -1,14 +1,34 @@
-<p style="color: green"><%= notice %></p>
+<header>
+<nav>
+    <ul class="nav_list">
+        <li class="nav-title"><%= current_user.name%></li>
+        <li class="page_title">CATEGORIES</li>
+        <% if user_signed_in? %>
+        <li>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-btn"%>
+        </li>
+        <% else %>
+        <li><%= button_to "Sign In", new_user_session_path, class: "nav-btn"  %></li>
+        <% end %>
+    </ul>
+</nav>
+</header>   
+<p style="color: green"><%= notice %></p></br>
 
-<h1>Groups</h1>
-
-<div id="groups">
-  <% @groups.each do |group| %>
-    <%= render group %>
-    <p>
-      <%= link_to "Show this group", group %>
-    </p>
+<div class="main_container">
+  <% if @groups.empty? %>
+    <p class="add_msg">Please add a new category</p>
+  <% else %>
+    <div id="groups" class="categories_container">
+      <% @groups.each do |group| %>
+        <% if can? :read, group %>
+          <%= link_to group_operations_path(group.id), class:"group_text" do %>
+            <%= render group %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New group", new_group_path %>
+  <div class="btn_block"><%= link_to "Add Category", new_group_path, class: "btn_add" %></div>
+</div>

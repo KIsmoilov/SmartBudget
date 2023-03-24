@@ -1,0 +1,30 @@
+<%= form_with model: @operation, url: group_operations_path, method: :post, data: { turbo: false } do |form| %>
+  <% if operation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(operation.errors.count, "error") %> prohibited this operation from being saved:</h2>
+
+      <ul>
+        <% operation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= form.text_field :name, placeholder: "Transaction name", required: true, class: "input" %>
+  </div>
+  
+  <div class="field">
+    <%= form.number_field :amount, placeholder: "Amount", required: true, class: "input", step: "any"  %>
+  </div>
+
+  <div class="field_checkbox">
+  <%= form.label :you_can_choose_one_or_more_categories %> </br>
+  <%= form.select :group_ids, @categories.collect {|category| [category.name, category.id]}, { include_blank: false }, required: true, multiple: true %>
+  </div>
+
+  <div class="btn_block">
+  <%= form.submit "Create Transaction", class: "btn_submit" %>
+</div>
+<% end %>
