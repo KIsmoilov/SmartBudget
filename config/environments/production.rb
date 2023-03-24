@@ -63,7 +63,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "SmartBudget_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'https://smart_budget_ypoi.onrender.com/' }
+  config.action_mailer.default_url_options = { host: 'https://smart-budget-kjre.onrender.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
