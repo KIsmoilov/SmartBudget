@@ -22,7 +22,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || ENV['RENDER'].present?
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
@@ -63,13 +63,13 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "SmartBudget_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'https://smart_budget_ypoi.onrender.com/' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-  :user_name => "husniddin.ismoilov@gmail.com",
-  :password => "rsyvwwcycfilkerq",
+  :user_name => "khusniddin.ismoilov.1994@gmail.com",
+  :password => "rbsawsttviywxemc",
   :domain => "google.com",
   :address => 'smtp.gmail.com',
   :port => 587,
