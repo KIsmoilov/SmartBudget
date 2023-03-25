@@ -1,0 +1,17 @@
+<header>
+<nav>
+    <ul class="nav_list">
+        <%= link_to "Back", group_operations_path, class: "nav-title" %>
+        <li class="page_title">ADD TRANSACTION</li>
+        <% if user_signed_in? %>
+        <li>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-btn"%>
+        </li>
+        <% else %>
+        <li><%= button_to "Sign In", new_user_session_path, class: "nav-btn"  %></li>
+        <% end %>
+    </ul>
+</nav>
+</header> 
+
+<%= render "form", operation: @operation %>

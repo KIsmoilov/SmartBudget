@@ -1,0 +1,48 @@
+:root {
+  --first-color: #3778c2;
+  --second-color: #5fb523;
+  --font-color: #434b54;
+}
+
+.splash_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+}
+
+.log_in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.splash_title {
+  font-size: 5rem;
+  margin-top: 20%;
+  font-family: "Lobster", cursive;
+}
+
+.btn_log_in {
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+  background-color: var(--first-color);
+  width: 90%;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.btn_sign_up {
+  text-decoration: none;
+  font-size: 2rem;
+  color: var(--font-color);
+  width: 90%;
+  text-align: center;
+  padding: 1rem 0;
+}

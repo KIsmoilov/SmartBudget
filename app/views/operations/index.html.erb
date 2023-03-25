@@ -1,0 +1,36 @@
+<header>
+<nav>
+    <ul class="nav_list">
+        <%= link_to "Back", groups_path, class: "nav-title" %>
+        <li class="page_title">TRANSACTIONS</li>
+        <% if user_signed_in? %>
+        <li>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-btn"%>
+        </li>
+        <% else %>
+        <li><%= button_to "Sign In", new_user_session_path, class: "nav-btn"  %></li>
+        <% end %>
+    </ul>
+</nav>
+</header> 
+<p style="color: green"><%= notice %></p></br>
+
+<div class="main_container">
+<% if @operations.empty? %>
+<p class="add_msg">Please add transactions</p>
+<% else %>
+    <div class="operations_total">
+      <p><%= @group.name %></p>
+      <p class="total_info">$<%= @operations.inject(0) { |sum, e| sum += e.amount  }%></p>
+    </div>
+    <div id="operations" class="operations_container">
+    <% @operations.each do |operation| %>
+      <%= link_to group_operation_path(@group.id, operation.id), class:"group_text" do %>
+      <%= render operation %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="btn_block"><%= link_to "Add Transaction", new_group_operation_path, class: "btn_submit" %></div>
+</div>

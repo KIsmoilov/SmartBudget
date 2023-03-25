@@ -1,0 +1,18 @@
+databases:
+  - name: smart_budget
+    databaseName: smart_budget_ypoi
+    user: smart_budget_ypoi_user
+
+services:
+  - type: web
+    name: smart_budget
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: smart_budget
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false

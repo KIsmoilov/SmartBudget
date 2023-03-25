@@ -1,0 +1,44 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <header>
+  <nav>
+      <ul class="nav_list">
+          <li><%= link_to "Back", unauthenticated_root_path, class: "nav-title" %></li>
+          <li class="page_title">REGISTRATION</li>
+          <% if user_signed_in? %>
+          <li class="sign_out">
+          <p class="nav_name">Hey <%= current_user.name%></p>
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-btn"%>
+          </li>
+          <% else %>
+          <%= f.submit "Sign up", class: "nav-btn" %>
+          <% end %>
+      </ul>
+  </nav>
+</header>  
+  
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.text_field :name, autocomplete: "name", placeholder: "Name", required: true, class: "input"  %>
+
+  </div>
+  
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", required: true, class: "input" %>
+  </div>
+
+  <div class="field">
+    <% if @minimum_password_length %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (6 characters minimum)", required: true, class: "input" %>
+    <% end %><br />
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", required: true, class: "input" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
